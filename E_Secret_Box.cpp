@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define loop(i, a, b) for(int i = a; i < b; i++)
+
+signed main() { 
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    int t;
+    cin >> t;
+    while (t--) {
+        auto begin = chrono::high_resolution_clock::now();
+        
+        int x, y, z, v;
+        cin >> x >> y >> z >> v;
+        int maxi = 0;
+        
+        for (int i = 1; i <= x; i++) {
+            if (v % i != 0) continue;
+            for (int j = 1; j <= y; j++) {
+                if ((v / i) % j != 0) continue; 
+                int k = v / (i * j);
+                if (k > z) continue;
+                
+                maxi = max(maxi, (x - i + 1) * (y - j + 1) * (z - k + 1));
+            }
+        }
+        
+        cout << maxi << endl;
+
+        auto end = chrono::high_resolution_clock::now();
+        auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin);
+        cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds." << endl;
+    }
+    
+    return 0;
+}

@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define endl "\n"
+#define loop(i, a, b) for(int i=a;i<b;i++)
+
+
+signed main(){ 
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin>>t;
+    while(t--){
+        auto begin = chrono::high_resolution_clock::now();
+        int n,x;
+        cin>>n>>x;
+        vector<int> a(n);
+        for(int i=0;i<n;i++) cin>>a[i];
+        sort(a.begin(),a.end());
+        vector<int> pre(n+1,0);
+        for(int i=1;i<=n;i++) pre[i]=pre[i-1]+a[i-1];
+        int res=0,prvday=-1;
+        for(int i=n;i>=1;i--){
+            int mxday =(x-pre[i]>=0) ? (x-pre[i])/i : -1;
+            res+=i*(mxday-prvday);
+            prvday=mxday;
+        }
+       
+        cout<<res<<endl;
+
+        auto end = chrono::high_resolution_clock::now();
+        auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin);
+        cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds."<<endl;
+    }
+    return 0;
+}
