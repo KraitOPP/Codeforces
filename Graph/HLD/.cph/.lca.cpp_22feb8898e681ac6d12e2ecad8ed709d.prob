@@ -1,0 +1,1 @@
+{"name":"Local: lca","url":"c:\\Users\\patel\\Downloads\\Codeforces\\Graph\\HLD\\lca.cpp","tests":[{"id":1748670104135,"input":"1\n7\n3 2 3 4\n0\n3 5 6 7\n0\n0\n0\n0\n2\n5 7\n2 7","output":"3\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\patel\\Downloads\\Codeforces\\Graph\\HLD\\lca.cpp","group":"local","local":true}
